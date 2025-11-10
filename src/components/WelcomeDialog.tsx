@@ -35,16 +35,16 @@ export const WelcomeDialog = () => {
         </button>
 
         <div className="flex items-center gap-3 mb-6">
-          <AlertTriangle className="h-8 w-8 text-yellow-500" />
-          <h2 className="text-2xl font-bold text-[#10b981]">AVISO IMPORTANTE</h2>
+          <AlertTriangle className="h-6 w-6 text-yellow-500" />
+          <h2 className="text-xl font-bold text-[#10b981]">AVISO IMPORTANTE</h2>
         </div>
 
         <div className="space-y-3 text-gray-300">
-          <p className="text-base">
+          <p className="text-sm">
             Olá, Conecte-se ao robô de previsões clicando no botão Registrar.
           </p>
           
-          <p className="text-base">
+          <p className="text-sm">
             Crie uma nova conta, faça seu depósito. <span className="font-semibold text-white">Valor mínimo: 50.00MT</span>
           </p>
 
@@ -67,13 +67,13 @@ export const WelcomeDialog = () => {
           <Button
             onClick={handleClose}
             variant="outline"
-            className="flex-1 h-12 text-base font-bold bg-[#4a5568] hover:bg-[#5a6578] text-white border-0"
+            className="flex-1 h-11 text-sm font-bold bg-[#4a5568] hover:bg-[#5a6578] text-white border-0"
           >
             FECHAR
           </Button>
           <Button
             onClick={handleRegister}
-            className="flex-1 h-12 text-base font-bold bg-[#10b981] hover:bg-[#059669] text-white"
+            className="flex-1 h-11 text-sm font-bold bg-[#10b981] hover:bg-[#059669] text-white"
           >
             REGISTRAR
           </Button>
