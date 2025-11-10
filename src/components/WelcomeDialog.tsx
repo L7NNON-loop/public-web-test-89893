@@ -25,7 +25,7 @@ export const WelcomeDialog = () => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-lg border-2 border-[#10b981] bg-[#1a1f2e] p-4 rounded-xl mx-4">
+      <DialogContent className="max-w-lg border-2 border-[#10b981] bg-[#1a1f2e] p-4 rounded-xl mx-4 animate-enter">
         <button
           onClick={handleClose}
           className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
