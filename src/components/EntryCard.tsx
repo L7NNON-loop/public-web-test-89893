@@ -53,6 +53,7 @@ export const EntryCard = ({ entry }: EntryCardProps) => {
         <Button 
           className="w-full bg-success hover:bg-success/90 text-white font-bold text-sm h-10 rounded-lg"
           disabled={!hasEntry}
+          onClick={() => window.open("https://ntmp.vercel.app/ebwqlq", "_blank")}
         >
           Apostar
         </Button>
