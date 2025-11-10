@@ -67,13 +67,13 @@ export const WelcomeDialog = () => {
           <Button
             onClick={handleClose}
             variant="outline"
-            className="flex-1 h-11 text-sm font-bold bg-[#4a5568] hover:bg-[#5a6578] text-white border-0"
+            className="flex-1 h-11 text-sm font-bold bg-[#4a5568] hover:bg-[#5a6578] text-white border-0 hover-scale"
           >
             FECHAR
           </Button>
           <Button
             onClick={handleRegister}
-            className="flex-1 h-11 text-sm font-bold bg-[#10b981] hover:bg-[#059669] text-white"
+            className="flex-1 h-11 text-sm font-bold bg-[#10b981] hover:bg-[#059669] text-white hover-scale"
           >
             REGISTRAR
           </Button>
