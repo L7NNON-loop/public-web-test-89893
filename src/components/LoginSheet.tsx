@@ -53,62 +53,65 @@ export const LoginSheet = () => {
       <SheetContent 
         side="bottom" 
         hideClose
-        className="h-auto max-h-[90vh] sm:max-h-[450px] rounded-t-2xl border-t-2"
+        className="h-auto max-h-[90vh] sm:max-h-[500px] rounded-t-3xl border-none mx-4 mb-4 bg-card"
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
-        <SheetHeader className="text-left mb-6">
-          <SheetTitle className="text-2xl font-bold">CONECTE-SE</SheetTitle>
-        </SheetHeader>
+        <div className="bg-background rounded-t-3xl p-6 -m-6 mb-4">
+          <SheetHeader className="text-left mb-6">
+            <SheetTitle className="text-2xl font-bold text-foreground">CONECTE-SE</SheetTitle>
+          </SheetHeader>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-          <div className="space-y-2">
-            <Label htmlFor="phone" className="text-base">Telefone</Label>
-            <div className="flex gap-2">
-              <div className="flex items-center gap-2 bg-muted px-3 rounded-md border border-input h-10 w-24">
-                <span className="text-sm">📱</span>
-                <span className="text-sm font-medium">+258</span>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-base font-medium text-foreground">Telefone</Label>
+              <div className="flex gap-2">
+                <div className="flex items-center gap-2 bg-muted px-3 rounded-lg border border-border h-11 w-20">
+                  <span className="text-sm font-semibold text-foreground">+258</span>
+                </div>
+                <Input
+                  id="phone"
+                  type="tel"
+                  maxLength={9}
+                  placeholder="840000000"
+                  {...register("phone")}
+                  className={`flex-1 h-11 rounded-lg ${errors.phone ? 'border-destructive' : ''}`}
+                />
               </div>
-              <Input
-                id="phone"
-                type="tel"
-                maxLength={9}
-                {...register("phone")}
-                className={`flex-1 h-10 ${errors.phone ? 'border-destructive' : ''}`}
-              />
+              {errors.phone && (
+                <p className="text-xs text-destructive mt-1">{errors.phone.message}</p>
+              )}
             </div>
-            {errors.phone && (
-              <p className="text-xs text-destructive">{errors.phone.message}</p>
-            )}
-          </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="password" className="text-base">Senha</Label>
-            <Input
-              id="password"
-              type="password"
-              {...register("password")}
-              className={`h-10 ${errors.password ? 'border-destructive' : ''}`}
-            />
-            {errors.password && (
-              <p className="text-xs text-destructive">{errors.password.message}</p>
-            )}
-          </div>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-base font-medium text-foreground">Senha</Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="••••••"
+                {...register("password")}
+                className={`h-11 rounded-lg ${errors.password ? 'border-destructive' : ''}`}
+              />
+              {errors.password && (
+                <p className="text-xs text-destructive mt-1">{errors.password.message}</p>
+              )}
+            </div>
 
-          <Button 
-            type="submit" 
-            className="w-full h-12 text-base font-semibold mt-6"
-          >
-            CONECTE-SE
-          </Button>
+            <Button 
+              type="submit" 
+              className="w-full h-12 text-base font-bold mt-6 rounded-lg"
+            >
+              CONECTE-SE
+            </Button>
+          </form>
+        </div>
 
-          <div className="bg-muted/50 rounded-lg p-3 mt-4">
-            <p className="text-xs text-muted-foreground text-center leading-relaxed">
-              Conecte sua conta de jogador <span className="font-semibold text-foreground">ElephantBet</span> credenciais reais, 
-              isso permitirá se conectar ao casino, e receber entradas reais.
-            </p>
-          </div>
-        </form>
+        <div className="bg-muted/30 rounded-2xl p-4 mx-2">
+          <p className="text-xs text-muted-foreground text-center leading-relaxed">
+            Conecte sua conta de jogador <span className="font-semibold text-foreground">ElephantBet</span> credenciais reais, 
+            isso permitirá se conectar ao casino, e receber entradas reais.
+          </p>
+        </div>
       </SheetContent>
     </Sheet>
   );
