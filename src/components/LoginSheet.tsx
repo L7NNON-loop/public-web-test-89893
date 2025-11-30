@@ -26,12 +26,9 @@ export const LoginSheet = () => {
     resolver: zodResolver(loginSchema)
   });
 
-  // Check if user is already logged in
+  // Always show dialog on page load
   useEffect(() => {
-    const loginData = localStorage.getItem("elephantBetLogin");
-    if (!loginData) {
-      setOpen(true);
-    }
+    setOpen(true);
   }, []);
 
   const onSubmit = async (data: LoginForm) => {
