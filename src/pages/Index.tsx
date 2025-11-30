@@ -6,6 +6,7 @@ import { ChartCard } from "@/components/ChartCard";
 import { NotificationCard } from "@/components/NotificationCard";
 import { Footer } from "@/components/Footer";
 import { WelcomeDialog } from "@/components/WelcomeDialog";
+import { LoginSheet } from "@/components/LoginSheet";
 
 type Candle = {
   value: string;
@@ -104,6 +105,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <WelcomeDialog />
+      <LoginSheet />
       <Header />
       <main className="flex-1 max-w-4xl w-full mx-auto p-4 space-y-4">
         <AnalysisCard 
