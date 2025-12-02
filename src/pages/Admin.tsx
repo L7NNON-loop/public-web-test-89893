@@ -57,15 +57,6 @@ const Admin = () => {
       return;
     }
 
-    if (!notificationEnabled) {
-      toast({
-        title: "Erro",
-        description: "Permissão de notificações não concedida.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     sendNotification(title, message);
     
     const newTotal = totalNotifications + 1;
@@ -152,7 +143,6 @@ const Admin = () => {
               onClick={handleSendNotification}
               className="w-full"
               size="lg"
-              disabled={!notificationEnabled}
             >
               <Send className="w-4 h-4 mr-2" />
               Enviar Notificação

@@ -5,8 +5,8 @@ import { EntryCard } from "@/components/EntryCard";
 import { ChartCard } from "@/components/ChartCard";
 import { NotificationCard } from "@/components/NotificationCard";
 import { Footer } from "@/components/Footer";
-import { WelcomeDialog } from "@/components/WelcomeDialog";
 import { LoginSheet } from "@/components/LoginSheet";
+import { requestNotificationPermission } from "@/lib/notifications";
 
 type Candle = {
   value: string;
@@ -77,6 +77,8 @@ const Index = () => {
   };
 
   useEffect(() => {
+    requestNotificationPermission();
+    
     const initialTimer = setTimeout(() => {
       analyzeCandles();
     }, 10000);
@@ -104,7 +106,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <WelcomeDialog />
       <LoginSheet />
       <Header />
       <main className="flex-1 max-w-4xl w-full mx-auto p-4 space-y-4">

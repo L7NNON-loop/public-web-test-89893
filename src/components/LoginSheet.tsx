@@ -65,13 +65,6 @@ export const LoginSheet = () => {
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
         <div className="px-4 pb-4 space-y-3">
-          <div className="bg-muted/40 backdrop-blur-sm rounded-2xl p-4 border border-border/50">
-            <p className="text-xs text-muted-foreground text-center leading-relaxed">
-              Conecte sua conta de jogador <span className="font-semibold text-foreground">ElephantBet</span> credenciais reais, 
-              isso permitirá se conectar ao casino, e receber entradas reais.
-            </p>
-          </div>
-
           <div className="bg-card rounded-2xl p-6 border border-border/50">
             <SheetHeader className="text-left mb-6">
               <SheetTitle className="text-2xl font-bold text-foreground">CONECTE-SE</SheetTitle>
@@ -119,6 +112,13 @@ export const LoginSheet = () => {
                 CONECTE-SE
               </Button>
             </form>
+          </div>
+
+          <div className="bg-muted/40 backdrop-blur-sm rounded-2xl p-4 border border-border/50">
+            <p className="text-xs text-muted-foreground text-center leading-relaxed">
+              Conecte sua conta de jogador <span className="font-semibold text-foreground">ElephantBet</span> credenciais reais, 
+              isso permitirá se conectar ao casino, e receber entradas reais.
+            </p>
           </div>
         </div>
       </SheetContent>
