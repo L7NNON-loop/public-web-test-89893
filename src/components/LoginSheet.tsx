@@ -81,7 +81,6 @@ export const LoginSheet = () => {
                     id="phone"
                     type="tel"
                     maxLength={9}
-                    placeholder="840000000"
                     {...register("phone")}
                     className={`flex-1 h-11 rounded-lg bg-white text-gray-900 ${errors.phone ? 'border-destructive' : 'border-gray-300'}`}
                   />
