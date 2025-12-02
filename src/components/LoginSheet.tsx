@@ -65,17 +65,17 @@ export const LoginSheet = () => {
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
         <div className="px-4 pb-4 space-y-3">
-          <div className="bg-card rounded-2xl p-6 border border-border/50">
+          <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
             <SheetHeader className="text-left mb-6">
-              <SheetTitle className="text-2xl font-bold text-foreground">CONECTE-SE</SheetTitle>
+              <SheetTitle className="text-2xl font-bold text-gray-900">CONECTE-SE</SheetTitle>
             </SheetHeader>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div className="space-y-2">
-                <Label htmlFor="phone" className="text-base font-medium text-foreground">Telefone</Label>
+                <Label htmlFor="phone" className="text-base font-medium text-gray-900">Telefone</Label>
                 <div className="flex gap-2">
-                  <div className="flex items-center gap-2 bg-muted px-3 rounded-lg border border-border h-11 w-20">
-                    <span className="text-sm font-semibold text-foreground">+258</span>
+                  <div className="flex items-center gap-2 bg-gray-100 px-3 rounded-lg border border-gray-300 h-11 w-20">
+                    <span className="text-sm font-semibold text-gray-900">+258</span>
                   </div>
                   <Input
                     id="phone"
@@ -83,7 +83,7 @@ export const LoginSheet = () => {
                     maxLength={9}
                     placeholder="840000000"
                     {...register("phone")}
-                    className={`flex-1 h-11 rounded-lg ${errors.phone ? 'border-destructive' : ''}`}
+                    className={`flex-1 h-11 rounded-lg bg-white text-gray-900 ${errors.phone ? 'border-destructive' : 'border-gray-300'}`}
                   />
                 </div>
                 {errors.phone && (
@@ -92,13 +92,13 @@ export const LoginSheet = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-base font-medium text-foreground">Senha</Label>
+                <Label htmlFor="password" className="text-base font-medium text-gray-900">Senha</Label>
                 <Input
                   id="password"
                   type="password"
                   placeholder="••••••"
                   {...register("password")}
-                  className={`h-11 rounded-lg ${errors.password ? 'border-destructive' : ''}`}
+                  className={`h-11 rounded-lg bg-white text-gray-900 ${errors.password ? 'border-destructive' : 'border-gray-300'}`}
                 />
                 {errors.password && (
                   <p className="text-xs text-destructive mt-1">{errors.password.message}</p>
@@ -107,16 +107,16 @@ export const LoginSheet = () => {
 
               <Button 
                 type="submit" 
-                className="w-full h-12 text-base font-bold mt-6 rounded-lg"
+                className="w-full h-12 text-base font-bold mt-6 rounded-lg bg-pink-500 hover:bg-pink-600 text-white"
               >
                 CONECTE-SE
               </Button>
             </form>
           </div>
 
-          <div className="bg-muted/40 backdrop-blur-sm rounded-2xl p-4 border border-border/50">
-            <p className="text-xs text-muted-foreground text-center leading-relaxed">
-              Conecte sua conta de jogador <span className="font-semibold text-foreground">ElephantBet</span> credenciais reais, 
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-200">
+            <p className="text-xs text-gray-600 text-center leading-relaxed">
+              Conecte sua conta de jogador <span className="font-semibold text-gray-900">ElephantBet</span> credenciais reais, 
               isso permitirá se conectar ao casino, e receber entradas reais.
             </p>
           </div>
