@@ -7,6 +7,7 @@ import { NotificationCard } from "@/components/NotificationCard";
 import { Footer } from "@/components/Footer";
 import { LoginSheet } from "@/components/LoginSheet";
 import { requestNotificationPermission } from "@/lib/notifications";
+import { registerServiceWorker } from "@/lib/registerServiceWorker";
 
 type Candle = {
   value: string;
@@ -77,6 +78,7 @@ const Index = () => {
   };
 
   useEffect(() => {
+    registerServiceWorker();
     requestNotificationPermission();
     
     const initialTimer = setTimeout(() => {

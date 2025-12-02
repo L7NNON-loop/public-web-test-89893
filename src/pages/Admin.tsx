@@ -8,9 +8,9 @@ import { useToast } from "@/hooks/use-toast";
 import { Bell, BellOff, Send } from "lucide-react";
 import { 
   requestNotificationPermission, 
-  sendNotification, 
   getNotificationPermissionStatus 
 } from "@/lib/notifications";
+import { sendPushNotification } from "@/lib/firebase";
 
 const Admin = () => {
   const [notificationEnabled, setNotificationEnabled] = useState(false);
@@ -47,7 +47,7 @@ const Admin = () => {
     }
   };
 
-  const handleSendNotification = () => {
+  const handleSendNotification = async () => {
     if (!title.trim() || !message.trim()) {
       toast({
         title: "Erro",
@@ -57,19 +57,27 @@ const Admin = () => {
       return;
     }
 
-    sendNotification(title, message);
-    
-    const newTotal = totalNotifications + 1;
-    setTotalNotifications(newTotal);
-    localStorage.setItem("totalNotificationsSent", newTotal.toString());
-    
-    toast({
-      title: "Notificação enviada",
-      description: "A notificação foi enviada com sucesso.",
-    });
+    try {
+      await sendPushNotification(title, message);
+      
+      const newTotal = totalNotifications + 1;
+      setTotalNotifications(newTotal);
+      localStorage.setItem("totalNotificationsSent", newTotal.toString());
+      
+      toast({
+        title: "Notificação enviada",
+        description: "A notificação foi enviada para todos os usuários.",
+      });
 
-    setTitle("");
-    setMessage("");
+      setTitle("");
+      setMessage("");
+    } catch (error) {
+      toast({
+        title: "Erro ao enviar",
+        description: "Não foi possível enviar a notificação.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
