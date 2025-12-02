@@ -1,3 +1,5 @@
+import { initializeFCM } from './firebase';
+
 export const requestNotificationPermission = async (): Promise<boolean> => {
   if (!("Notification" in window)) {
     console.log("This browser does not support notifications");
@@ -5,12 +7,16 @@ export const requestNotificationPermission = async (): Promise<boolean> => {
   }
 
   if (Notification.permission === "granted") {
+    await initializeFCM();
     return true;
   }
 
   if (Notification.permission !== "denied") {
     const permission = await Notification.requestPermission();
-    return permission === "granted";
+    if (permission === "granted") {
+      await initializeFCM();
+      return true;
+    }
   }
 
   return false;
